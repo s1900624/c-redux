@@ -1,11 +1,9 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
 import { makeStyles } from '@material-ui/core/styles';
 import { Grid, Button, CardActions, Typography, CardContent } from "@material-ui/core";
-
-import { bindActionCreators } from 'redux';
-import { connect } from 'react-redux';
-import * as actions from '../actions';
 
 const useStyles = makeStyles(() => ({
     gridContainer: {
@@ -22,7 +20,7 @@ const useStyles = makeStyles(() => ({
     },
 }));
 
-const Counter = ({ counter, inc, dec, rnd }) => {
+const Counter = ({ counter, inc, dec, rnd, reset }) => {
     const classes = useStyles();
     return (
         <main className='circle-container'>
@@ -56,6 +54,12 @@ const Counter = ({ counter, inc, dec, rnd }) => {
                             color="secondary">
                             Rnd
                         </Button>
+                        <Button
+                            onClick={reset}
+                            variant="contained"
+                            color="secondary">
+                            Reset
+                        </Button>
                     </CardActions>
                 </Grid>
             </Grid>
@@ -63,4 +67,10 @@ const Counter = ({ counter, inc, dec, rnd }) => {
     );
 };
 
-export default Counter;
+const mapStateToProps = (state) => {
+    return {
+        counter: state
+    };
+};
+
+export default connect(mapStateToProps, actions)(Counter);
