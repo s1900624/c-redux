@@ -16,6 +16,20 @@ export const reset = () => {
     }
 };
 
+export const storeadd = (value) => {
+    return {
+        type: 'STOREADD',
+        payload: value
+    }
+};
+
+export const storedel = (value) => {
+    return {
+        type: 'STOREDEL',
+        payload: value
+    }
+};
+
 export const rnd = () => {
     return {
         type: 'RND',
