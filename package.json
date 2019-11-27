@@ -2,7 +2,7 @@
   "name": "c-redux",
   "version": "1.0.0",
   "private": true,
-  "homepage": "https://github.com/s1900624/c-redux",
+  "homepage": "https://s1900624.github.io/c-redux",
   "dependencies": {
     "@material-ui/core": "^4.7.0",
     "gh-pages": "^2.1.1",
